@@ -11,8 +11,14 @@ class User extends Component {
         salary : 'Default Salary',
         department : 'Default Department'
     }
-    onClickEvent = (e) => {
-        console.log(this);
+    onClickEvent = (number,e) => {
+        this.setState({
+            isVisible : ! this.state.isVisible
+        })
+    }
+    onDeleteUser = (e) => {
+        //const {id} = this.props;
+        // Consumer Dispatch
     }
     render() {
 
@@ -45,6 +51,8 @@ class User extends Component {
 User.propTypes={
     name : PropTypes.string.isRequired,
     salary : PropTypes.string.isRequired,
-    department : PropTypes.string.isRequired
+    department : PropTypes.string.isRequired,
+    id : PropTypes.number.isRequired
+
 }
 export default User;
