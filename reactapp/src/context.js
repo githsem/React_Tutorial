@@ -34,7 +34,6 @@ export class UserProvider extends Component {
           users:response.data
         })
       }
-      
     render() {
         return (
            <UserContext.Provider value={this.state}>
