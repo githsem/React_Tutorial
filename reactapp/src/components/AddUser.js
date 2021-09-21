@@ -20,7 +20,10 @@ const Animation = posed.div({
 
 class AddUser extends Component {
     state = {
-        visible : false
+        visible : false,
+        name : "",
+        department : "",
+        salary : ""
     }
     changeVisibility = (e) => {
         this.setState({
