@@ -1,0 +1,22 @@
+{
+    "users":[
+        {
+            "id" : "1",
+            "name" : "Hasan",
+            "salary" : "7000",
+            "department" : "Frontend Development"
+          },
+          {
+            "id" : "2",
+            "name" : "Hüseyin",
+            "salary" : "8000",
+            "department" : "Backend Development"
+          },
+          {
+            "id" : "3",
+            "name" : "Hans",
+            "salary" : "9000",
+            "department" : "Software Development"
+          }
+    ]
+}

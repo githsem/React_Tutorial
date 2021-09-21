@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios';
 
 const UserContext = React.createContext();
 // Provider, Consumer
@@ -10,6 +11,11 @@ const reducer = (state,action) => {
         ...state,
         users: state.users.filter(user=> action.payload !== user.id)
       }
+      case "ADD_USER":
+      return{
+        ...state,
+        users: [...state.users,action.payload]
+      }
       default:
         return state
   }
@@ -17,30 +23,18 @@ const reducer = (state,action) => {
 
 export class UserProvider extends Component {
     state = {
-        users:[
-          {
-            id : 1,
-            name : 'Hasan',
-            salary : '7000',
-            department : 'Frontend Development'
-          },
-          {
-            id : 2,
-            name : 'Hüseyin',
-            salary : '8000',
-            department : 'Backend Development'
-          },
-          {
-            id : 3,
-            name : 'Hans',
-            salary : '9000',
-            department : 'Software Development'
-          }
-        ],
+        users:[],
         dispatch: action => {
           this.setState(state => reducer(state, action))
         }
       }
+      componentDidMount = async() => {
+        const response = await axios.get("http://localhost:3005/users")
+        this.setState({
+          users:response.data
+        })
+      }
+      
     render() {
         return (
            <UserContext.Provider value={this.state}>
